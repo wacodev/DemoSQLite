@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    x:Class="DemoSQLite.MVVM.Views.MenuSheet"
+    HasBackdrop="True">
+    <VerticalStackLayout
+        x:Name="OptionList"
+        Margin="30">
+        <VerticalStackLayout Padding="0, 16">
+            <VerticalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding CheckTaskCommand}"
+                    CommandParameter="{Binding Task}" />
+            </VerticalStackLayout.GestureRecognizers>
+            <HorizontalStackLayout>
+                <mi:MauiIcon
+                    Icon="{mi:Material Icon=CheckCircleOutline}"
+                    IconSize="24"
+                    Padding="0, 0, 16, 0" />
+                <Label
+                    Text="{Binding ActionDescription}"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Padding="0, 16">
+            <VerticalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding EditTaskCommand}"
+                    CommandParameter="{Binding Task}" />
+            </VerticalStackLayout.GestureRecognizers>
+            <HorizontalStackLayout>
+                <mi:MauiIcon
+                    Icon="{mi:Material Icon=Edit}"
+                    IconSize="24"
+                    Padding="0, 0, 16, 0" />
+                <Label
+                    Text="Editar tarea"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Padding="0, 16">
+            <VerticalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding DeleteTaskCommand}"
+                    CommandParameter="{Binding Task}" />
+            </VerticalStackLayout.GestureRecognizers>
+            <HorizontalStackLayout>
+                <mi:MauiIcon
+                    Icon="{mi:Material Icon=Delete}"
+                    IconSize="24"
+                    Padding="0, 0, 16, 0" />
+                <Label
+                    Text="Eliminar tarea"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</the49:BottomSheet>

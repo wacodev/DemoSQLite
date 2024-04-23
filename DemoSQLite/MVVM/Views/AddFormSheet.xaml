@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+    x:Class="DemoSQLite.MVVM.Views.AddFormSheet"
+    HasBackdrop="True">
+    <VerticalStackLayout Margin="30">
+        <Label
+            Text="Nueva tarea" />
+        <Entry
+            Text="{Binding Description}"
+            Placeholder="Ej: Comprar leche"
+            Margin="0,0,0,20"/>
+        <Button
+            Text="Agregar tarea" 
+            Command="{Binding AddTaskCommand}"
+            HorizontalOptions="Fill" />
+    </VerticalStackLayout>
+</the49:BottomSheet>

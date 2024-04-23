@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoSQLite.MVVM.Views.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <BoxView
+                    HeightRequest="1"
+                    BackgroundColor="{StaticResource Gray200}" />
+                <CollectionView
+                    x:Name="TaskList"
+                    ItemsSource="{Binding TaskList}"
+                    EmptyView="Sin tareas a realizar"
+                    VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference Name=TaskList}, Path=BindingContext.ShowMenuCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </VerticalStackLayout.GestureRecognizers>
+                                <Label
+                                    Text="{Binding Description}"
+                                    TextDecorations="{Binding TextDecoration}"
+                                    Padding="30, 20"/>
+                                <BoxView
+                                    HeightRequest="1"
+                                    BackgroundColor="{StaticResource Gray200}" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button 
+            Grid.Row="0"
+            Text="Agregar tarea"
+            Command="{Binding ShowAddFormCommand}"
+            HorizontalOptions="End"
+            Margin="0,0,30,30"
+            VerticalOptions="End" />
+    </Grid>
+</ContentPage>
